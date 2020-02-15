@@ -178,7 +178,7 @@ class NetscapeBookmarkParser implements LoggerAwareInterface
                 if (preg_match('/(tags?|labels?|folders?)="(.*?)"/i', $line, $m7)) {
                     $tags = array_merge($tags, explode(' ', strtr($m7[2], ',', ' ')));
                 }
-                $this->items[$i]['tags'] = implode(' ', $tags);
+                $this->items[$i]['tags'] = implode(',', $tags);
                 $this->logger->debug('[#' . $line_no . '] Tag list: '. $this->items[$i]['tags']);
 
                 if (preg_match('/add_date="(.*?)"/i', $line, $m8)) {
